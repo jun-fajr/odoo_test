@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="material_view_form" model="ir.ui.view">
+			<field name="name">Material Form</field>
+			<field name="model">material.material</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="code"/>
+							<field name="name"/>
+							<field name="tipe"/>
+							<field name="buy_price"/>
+							<field name="supplier_id"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree View -->
+		<record id="material_tree_view" model="ir.ui.view">
+			<field name="name">material.tree.view</field>
+			<field name="model">material.material</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="code"/>
+					<field name="name"/>
+					<field name="tipe"/>
+					<field name="buy_price"/>
+					<field name="supplier_id"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Search View -->
+		<record id="material_search_view" model="ir.ui.view">
+			<field name="name">material.search.view</field>
+			<field name="model">material.material</field>
+			<field name="priority" eval="15"/>
+			<field name="arch" type="xml">
+				<search string="Material Filter">
+					<field name="tipe"/>
+				</search>
+			</field>
+		</record>
+
+		<record id="material_action" model="ir.actions.act_window">
+            <field name="name">Pembuatan Material</field>
+            <field name="res_model">material.material</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+		<menuitem 
+			name="Materials"
+			id="test_keda.menu_root"/>
+
+		<menuitem 
+			name="Menu Material"
+			id="test_keda.menu_material"
+			parent="test_keda.menu_root"
+			action="material_action"/>
+	</data>
+</odoo>

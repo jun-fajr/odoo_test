@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="materials_page" name="Materials">
+            <t t-call="website.layout">
+                <div class="container">
+                    <p>Materials</p>
+                    <ul>
+                        <li t-foreach="material" t-as="material">
+                            <t t-esc="material.name"/>
+                        </li>
+                    </ul>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
